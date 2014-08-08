@@ -15,7 +15,7 @@ def generate_linked_list(size):
         curr = curr.next
     return root
 
-def reverse_linked_list(root):
+def first_reverse_linked_list(root):
     reverse = []
     curr = root
     while curr != None:
@@ -30,9 +30,23 @@ def reverse_linked_list(root):
         curr = curr.next
     return new_root
 
+def second_reverse_linked_list(root):
+    return helper(root,None)
+
+def helper(old_list,new_list):
+    
+    if old_list == None:
+        return new_list
+
+    node = old_list
+    old_list = old_list.next
+    node.next = new_list
+
+    return helper(old_list, node)
+
 root = generate_linked_list(10)
 
-curr = reverse_linked_list(root)
+curr = second_reverse_linked_list(root)
 while curr != None:
     print curr
     curr = curr.next
