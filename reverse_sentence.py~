@@ -1,0 +1,4 @@
+def reverse_sentence(sentence):
+    tokenized = sentence.split(' ')
+    tokenized.reverse()
+    return tokenized
